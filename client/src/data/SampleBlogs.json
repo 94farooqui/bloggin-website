@@ -1,0 +1,407 @@
+[
+  {
+    "title": "The Future of AI in Healthcare",
+    "description_summary": "Exploring how artificial intelligence is revolutionizing the healthcare industry.",
+    "blog_content": "Artificial intelligence is transforming healthcare by enabling predictive diagnostics, personalized treatment, and efficient workflows. From AI-powered medical imaging to drug discovery, the possibilities are endless. Challenges such as ethical concerns and data privacy must also be addressed for seamless integration.",
+    "image_url": "https://example.com/ai-healthcare.jpg",
+    "author": "Dr. John Doe",
+    "date": "2024-11-20",
+    "likes" : 23,
+    "comments" : [
+      {
+        "user":"Jake Paul",
+        "message":"This is not something to comment, but I did"
+      },
+      {
+        "user":"Mohammed Ali",
+        "message": "You should have restricted yourself to boxing ring"
+      },
+      {
+        "user":"Mike Tyson",
+        "message":"Let's finish this once for all"
+      },
+      {
+        "user" : "NetFlix",
+        "message" : "You guys are doing great job!"
+      }
+    ]
+  },
+  {
+    "title": "Top 10 Hidden Gems to Visit in Europe",
+    "description_summary": "Discover lesser-known destinations in Europe for your next adventure.",
+    "blog_content": "While Paris and Rome are famous, Europe is brimming with hidden gems like Hallstatt in Austria and Albarracín in Spain. These destinations offer breathtaking views, rich history, and fewer crowds, making them perfect for off-the-beaten-path travel enthusiasts.",
+    "image_url": "https://example.com/europe-travel.jpg",
+    "author": "Jane Wanderlust",
+    "date": "2024-10-15",
+    "likes" : 23,
+    "comments" : [
+      {
+        "user":"Jake Paul",
+        "message":"This is not something to comment, but I did"
+      },
+      {
+        "user":"Mohammed Ali",
+        "message": "You should have restricted yourself to boxing ring"
+      },
+      {
+        "user":"Mike Tyson",
+        "message":"Let's finish this once for all"
+      },
+      {
+        "user" : "NetFlix",
+        "message" : "You guys are doing great job!"
+      }
+    ]
+  },
+  {
+    "title": "Understanding Blockchain Technology",
+    "description_summary": "An introduction to blockchain and its impact on various industries.",
+    "blog_content": "Blockchain is a decentralized, immutable ledger that ensures transparency and security. Originally designed for Bitcoin, it now powers diverse applications like supply chain tracking and secure voting systems. Its potential is immense, but challenges like scalability remain.",
+    "image_url": "https://example.com/blockchain.jpg",
+    "author": "Tech Guru",
+    "date": "2024-09-10",
+    "likes" : 23,
+    "comments" : [
+      {
+        "user":"Jake Paul",
+        "message":"This is not something to comment, but I did"
+      },
+      {
+        "user":"Mohammed Ali",
+        "message": "You should have restricted yourself to boxing ring"
+      },
+      {
+        "user":"Mike Tyson",
+        "message":"Let's finish this once for all"
+      },
+      {
+        "user" : "NetFlix",
+        "message" : "You guys are doing great job!"
+      }
+    ]
+  },
+  {
+    "title": "The Rise of Electric Vehicles",
+    "description_summary": "How electric vehicles are shaping the future of transportation.",
+    "blog_content": "Electric vehicles (EVs) are becoming mainstream, offering a sustainable alternative to traditional cars. Advances in battery technology, government incentives, and a growing charging infrastructure are accelerating EV adoption worldwide.",
+    "image_url": "https://example.com/electric-vehicles.jpg",
+    "author": "Auto Trends",
+    "date": "2024-11-05",
+    "likes" : 23,
+    "comments" : [
+      {
+        "user":"Jake Paul",
+        "message":"This is not something to comment, but I did"
+      },
+      {
+        "user":"Mohammed Ali",
+        "message": "You should have restricted yourself to boxing ring"
+      },
+      {
+        "user":"Mike Tyson",
+        "message":"Let's finish this once for all"
+      },
+      {
+        "user" : "NetFlix",
+        "message" : "You guys are doing great job!"
+      }
+    ]
+  },
+  {
+    "title": "10 Easy Recipes for Busy Weeknights",
+    "description_summary": "Quick and delicious recipes to save time in the kitchen.",
+    "blog_content": "Cooking doesn't have to be complicated. From one-pot pasta to sheet-pan chicken, these recipes are perfect for busy weeknights. They require minimal ingredients, are easy to follow, and result in hearty meals for the family.",
+    "image_url": "https://example.com/easy-recipes.jpg",
+    "author": "Chef Sarah",
+    "date": "2024-07-22",
+    "likes" : 23,
+    "comments" : [
+      {
+        "user":"Jake Paul",
+        "message":"This is not something to comment, but I did"
+      },
+      {
+        "user":"Mohammed Ali",
+        "message": "You should have restricted yourself to boxing ring"
+      },
+      {
+        "user":"Mike Tyson",
+        "message":"Let's finish this once for all"
+      },
+      {
+        "user" : "NetFlix",
+        "message" : "You guys are doing great job!"
+      }
+    ]
+  },
+  {
+    "title": "The Impact of Social Media on Politics",
+    "description_summary": "Analyzing the role of social media in shaping political discourse.",
+    "blog_content": "Social media platforms have transformed politics by enabling direct communication between leaders and citizens. However, they also contribute to the spread of misinformation and polarization. Striking a balance is crucial for healthy democratic processes.",
+    "image_url": "https://example.com/politics-socialmedia.jpg",
+    "author": "Political Analyst",
+    "date": "2024-08-14",
+    "likes" : 23,
+    "comments" : [
+      {
+        "user":"Jake Paul",
+        "message":"This is not something to comment, but I did"
+      },
+      {
+        "user":"Mohammed Ali",
+        "message": "You should have restricted yourself to boxing ring"
+      },
+      {
+        "user":"Mike Tyson",
+        "message":"Let's finish this once for all"
+      },
+      {
+        "user" : "NetFlix",
+        "message" : "You guys are doing great job!"
+      }
+    ]
+  },
+  {
+    "title": "5 Yoga Poses for a Stress-Free Mind",
+    "description_summary": "Simple yoga poses to help you relax and rejuvenate.",
+    "blog_content": "Yoga can be a powerful tool to combat stress. Try poses like Child’s Pose, Cat-Cow, and Legs-Up-The-Wall to calm your mind and restore balance. Regular practice can improve mental clarity and emotional well-being.",
+    "image_url": "https://example.com/yoga-stressfree.jpg",
+    "author": "Wellness Expert",
+    "date": "2024-06-18",
+    "likes" : 23,
+    "comments" : [
+      {
+        "user":"Jake Paul",
+        "message":"This is not something to comment, but I did"
+      },
+      {
+        "user":"Mohammed Ali",
+        "message": "You should have restricted yourself to boxing ring"
+      },
+      {
+        "user":"Mike Tyson",
+        "message":"Let's finish this once for all"
+      },
+      {
+        "user" : "NetFlix",
+        "message" : "You guys are doing great job!"
+      }
+    ]
+  },
+  {
+    "title": "AI-Driven Startups to Watch in 2025",
+    "description_summary": "Highlighting the most promising AI startups disrupting various industries.",
+    "blog_content": "From healthcare to finance, AI startups are making waves. Companies like OpenAI and DeepMind continue to innovate, while new players bring fresh perspectives. Keep an eye on these startups for groundbreaking solutions.",
+    "image_url": "https://example.com/ai-startups.jpg",
+    "author": "Startup Insights",
+    "date": "2024-11-25",
+    "likes" : 23,
+    "comments" : [
+      {
+        "user":"Jake Paul",
+        "message":"This is not something to comment, but I did"
+      },
+      {
+        "user":"Mohammed Ali",
+        "message": "You should have restricted yourself to boxing ring"
+      },
+      {
+        "user":"Mike Tyson",
+        "message":"Let's finish this once for all"
+      },
+      {
+        "user" : "NetFlix",
+        "message" : "You guys are doing great job!"
+      }
+    ]
+  },
+  {
+    "title": "The Ultimate Guide to Backpacking South America",
+    "description_summary": "Everything you need to know for an unforgettable South American adventure.",
+    "blog_content": "Backpacking South America offers diverse experiences, from hiking the Andes to exploring Amazonian rainforests. Prepare with proper gear, learn basic Spanish, and embrace the vibrant cultures for a fulfilling journey.",
+    "image_url": "https://example.com/backpacking-southamerica.jpg",
+    "author": "Global Nomad",
+    "date": "2024-03-12",
+    "likes" : 23,
+    "comments" : [
+      {
+        "user":"Jake Paul",
+        "message":"This is not something to comment, but I did"
+      },
+      {
+        "user":"Mohammed Ali",
+        "message": "You should have restricted yourself to boxing ring"
+      },
+      {
+        "user":"Mike Tyson",
+        "message":"Let's finish this once for all"
+      },
+      {
+        "user" : "NetFlix",
+        "message" : "You guys are doing great job!"
+      }
+    ]
+  },
+  {
+    "title": "Cybersecurity Trends in 2024",
+    "description_summary": "Key cybersecurity challenges and solutions for businesses in the coming year.",
+    "blog_content": "As cyber threats evolve, businesses must prioritize robust defenses like zero-trust architecture and AI-driven monitoring. Ransomware and phishing remain top concerns, emphasizing the need for employee training and advanced security tools.",
+    "image_url": "https://example.com/cybersecurity.jpg",
+    "author": "Cyber Shield",
+    "date": "2024-10-30",
+    "likes" : 23,
+    "comments" : [
+      {
+        "user":"Jake Paul",
+        "message":"This is not something to comment, but I did"
+      },
+      {
+        "user":"Mohammed Ali",
+        "message": "You should have restricted yourself to boxing ring"
+      },
+      {
+        "user":"Mike Tyson",
+        "message":"Let's finish this once for all"
+      },
+      {
+        "user" : "NetFlix",
+        "message" : "You guys are doing great job!"
+      }
+    ]
+  },
+  {
+    "title": "How to Start Investing in Stocks",
+    "description_summary": "A beginner-friendly guide to investing in the stock market.",
+    "blog_content": "Investing in stocks can grow your wealth over time. Start by understanding key concepts like diversification, risk tolerance, and market analysis. Platforms like Robinhood and Fidelity make it easy to get started with as little as $100.",
+    "image_url": "https://example.com/stock-investing.jpg",
+    "author": "Finance Coach",
+    "date": "2024-05-01",
+    "likes" : 23,
+    "comments" : [
+      {
+        "user":"Jake Paul",
+        "message":"This is not something to comment, but I did"
+      },
+      {
+        "user":"Mohammed Ali",
+        "message": "You should have restricted yourself to boxing ring"
+      },
+      {
+        "user":"Mike Tyson",
+        "message":"Let's finish this once for all"
+      },
+      {
+        "user" : "NetFlix",
+        "message" : "You guys are doing great job!"
+      }
+    ]
+  },
+  {
+    "title": "Exploring the World of Minimalism",
+    "description_summary": "How minimalism can simplify and enhance your life.",
+    "blog_content": "Minimalism is more than decluttering; it’s about intentional living. By focusing on what truly matters, you can reduce stress and increase happiness. Start small by evaluating your possessions and embracing a clutter-free mindset.",
+    "image_url": "https://example.com/minimalism.jpg",
+    "author": "Simple Living",
+    "date": "2024-07-08",
+    "likes" : 23,
+    "comments" : [
+      {
+        "user":"Jake Paul",
+        "message":"This is not something to comment, but I did"
+      },
+      {
+        "user":"Mohammed Ali",
+        "message": "You should have restricted yourself to boxing ring"
+      },
+      {
+        "user":"Mike Tyson",
+        "message":"Let's finish this once for all"
+      },
+      {
+        "user" : "NetFlix",
+        "message" : "You guys are doing great job!"
+      }
+    ]
+  },
+  {
+    "title": "5G: Transforming Connectivity",
+    "description_summary": "The role of 5G technology in reshaping communication and industries.",
+    "blog_content": "5G networks promise faster speeds, lower latency, and higher connectivity. Industries like healthcare, gaming, and autonomous vehicles are set to benefit immensely. However, infrastructure deployment remains a challenge in remote areas.",
+    "image_url": "https://example.com/5g-technology.jpg",
+    "author": "Tech Trends",
+    "date": "2024-06-15",
+    "likes" : 23,
+    "comments" : [
+      {
+        "user":"Jake Paul",
+        "message":"This is not something to comment, but I did"
+      },
+      {
+        "user":"Mohammed Ali",
+        "message": "You should have restricted yourself to boxing ring"
+      },
+      {
+        "user":"Mike Tyson",
+        "message":"Let's finish this once for all"
+      },
+      {
+        "user" : "NetFlix",
+        "message" : "You guys are doing great job!"
+      }
+    ]
+  },
+  {
+    "title": "The Role of Art in Society",
+    "description_summary": "Exploring how art influences and reflects societal values.",
+    "blog_content": "Art has the power to inspire, challenge, and unite people. From ancient cave paintings to modern digital creations, it serves as a mirror to society and a catalyst for change. Supporting the arts enriches culture and humanity.",
+    "image_url": "https://example.com/art-society.jpg",
+    "author": "Cultural Critic",
+    "date": "2024-04-25",
+    "likes" : 23,
+    "comments" : [
+      {
+        "user":"Jake Paul",
+        "message":"This is not something to comment, but I did"
+      },
+      {
+        "user":"Mohammed Ali",
+        "message": "You should have restricted yourself to boxing ring"
+      },
+      {
+        "user":"Mike Tyson",
+        "message":"Let's finish this once for all"
+      },
+      {
+        "user" : "NetFlix",
+        "message" : "You guys are doing great job!"
+      }
+    ]
+  },
+  {
+    "title": "Mastering the Art of Freelancing",
+    "description_summary": "Tips and tricks for a successful freelancing career.",
+    "blog_content": "Freelancing offers flexibility and independence but requires discipline and networking. Build a strong portfolio, set clear rates, and use platforms like Upwork or Fiverr to find clients. Time management is key to balancing multiple projects.",
+    "image_url": "https://example.com/freelancing.jpg",
+    "author": "Freelance Pro",
+    "date": "2024-01-10",
+    "likes" : 23,
+    "comments" : [
+      {
+        "user":"Jake Paul",
+        "message":"This is not something to comment, but I did"
+      },
+      {
+        "user":"Mohammed Ali",
+        "message": "You should have restricted yourself to boxing ring"
+      },
+      {
+        "user":"Mike Tyson",
+        "message":"Let's finish this once for all"
+      },
+      {
+        "user" : "NetFlix",
+        "message" : "You guys are doing great job!"
+      }
+    ]
+  }
+]
