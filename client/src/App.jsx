@@ -7,28 +7,29 @@ import CreateBlog from './pages/CreateBlog';
 import BlogDetails from './pages/BlogDetails';
 import ProtectedRoute from './components/ProtectedRoute';
 import RootLayout from './components/RootLayout';
+import About from './pages/About';
 
 const App = () => {
   return (
     <div className="app font-Poppins">
       <Routes>
-        <Route element={<RootLayout/>}>
-        <Route path="/" element={<Home />} />
-
-        <Route path="/blogs/:id" element={<BlogDetails />} />
-        <Route
-          path="/create"
-          element={
-            <ProtectedRoute>
-              <CreateBlog />
-            </ProtectedRoute>
-          }
-        />
+        <Route element={<RootLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blogs/:id" element={<BlogDetails />} />
+          <Route
+            path="/create"
+            element={
+              <ProtectedRoute>
+                <CreateBlog />
+              </ProtectedRoute>
+            }
+          />
         </Route>
       </Routes>
       <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );

@@ -9,7 +9,7 @@ const CreateBlog = () => {
 
   return (
     <div className="w-[1200px] mx-auto py-4">
-      <h2 className='text-2xl font-semibold text-slate-600 mb-4'>Create a Blog</h2>
+      
       <BlogEditor/>
     </div>
   );

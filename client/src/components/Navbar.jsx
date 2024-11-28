@@ -5,17 +5,21 @@ import { FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
   return (
-    <div className="w-screen bg-white border-b drop-shadow">
+    <div className="w-screen bg-white border-b drop-shadow sticky top-0 left-0 z-20">
       <div className="w-[1200px] mx-auto py-4 flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-slate-600">Narrato</h1>
+        <Link to='/'>
+          <h1 className="text-2xl font-bold text-slate-600">Narrato</h1>
+        </Link>
         <ul className="flex gap-4 items-center text-sm text-slate-600">
-          <li  className="border border-slate-300 p-2 rounded-lg flex items-center gap-2">
-            <span className="opacity-50"><FaSearch/></span>
+          <li className="border border-slate-300 p-2 rounded-lg flex items-center gap-2">
+            <span className="opacity-50">
+              <FaSearch />
+            </span>
             <form>
-            <input
-              placeholder="Search"
-              className="bg-transparent focus:outline-none"
-            />
+              <input
+                placeholder="Search"
+                className="bg-transparent focus:outline-none"
+              />
             </form>
           </li>
           <Link to="/">

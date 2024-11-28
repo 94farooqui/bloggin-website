@@ -13,40 +13,45 @@ const BlogEditor = () => {
   const [content, setContent] = useState('');
   const [tags, setTags] = useState('');
   const { user } = useContext(AuthContext);
+  const [summary,setSummary] = useState()
   const navigate = useNavigate();
-
-    const container = document.getElementById('editor-container')
-    const quill = new Quill(container)
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    if (!token) {
-      alert('You need to be logged in to create a blog!');
-      navigate('/login');
-      return;
-    }
+    // if (!token) {
+    //   alert('You need to be logged in to create a blog!');
+    //   navigate('/login');
+    //   return;
+    // }
 
     try {
-      await axios.post(
-        'http://localhost:5000/api/blogs',
-        { title, content, tags: tags.split(',').map((tag) => tag.trim()) },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      // 
+      console.log("Content", content);
       alert('Blog created successfully!');
-      navigate('/');
+      //navigate('/');
     } catch (err) {
       console.error(err.response?.data?.error || 'Something went wrong');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className='w-full  flex flex-col gap-2'>
+    <div>
+      <div className="flex w-full justify-between items-center">
+        <h2 className="text-2xl font-semibold text-slate-600 mb-4">
+          Create a Blog
+        </h2>
+        <button
+          onClick={handleSubmit}
+          className="bg-slate-900 px-4 py-2 self-start text-slate-100 rounded-md"
+        >
+          Publish
+        </button>
+      </div>
+      <form
+        onSubmit={handleSubmit}
+        className="w-full  flex flex-col gap-2 text-slate-700"
+      >
         <div>
           <input
             id="title"
@@ -55,12 +60,12 @@ const BlogEditor = () => {
             onChange={(e) => setTitle(e.target.value)}
             required
             placeholder="Enter blog title"
-            className='w-full text-3xl p-2 border rounded-lg'
+            className="w-full text-xl p-2 border rounded-lg"
           />
         </div>
-        <div id="editor-container">
-            <Editor/>
-          {/* <textarea
+        {/* description_summary */}
+        <Editor content={content} setContent={setContent} />
+        {/* <textarea
             id="content"
             value={content}
             onChange={(e) => setContent(e.target.value)}
@@ -68,8 +73,18 @@ const BlogEditor = () => {
             placeholder="Write here"
             className='w-full text-xl p-2 border rounded-lg resize-none' rows={6}
           /> */}
+        <div className="flex flex-col gap-1 mt-4">
+          <label htmlFor="tags">Summary</label>
+          <textarea
+          rows={2}
+            id="summary"
+            value={summary}
+            onChange={(e) => setSummary(e.target.value)}
+            placeholder="short summary about the blog"
+            className="w-full text-lg p-2 border rounded-lg resize-none"
+          />
         </div>
-        <div className='flex flex-col gap-1'>
+        <div className="flex flex-col gap-1">
           <label htmlFor="tags">Tags</label>
           <input
             id="tags"
@@ -77,12 +92,13 @@ const BlogEditor = () => {
             value={tags}
             onChange={(e) => setTags(e.target.value)}
             placeholder="e.g., tech, programming, react"
-            className='w-full text-lg p-2 border rounded-lg'
+            className="w-full text-lg p-2 border rounded-lg"
           />
         </div>
-        <button type="submit" className='bg-slate-900 px-4 py-2 self-start text-slate-100 rounded-md'>Publish</button>
+        <div dangerouslySetInnerHTML={{ __html: content }} />
       </form>
-  )
+    </div>
+  );
 }
 
 export default BlogEditor
