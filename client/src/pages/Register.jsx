@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SignupIcon from './../assets/signup.svg'
 
 
 
 const Register = () => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
-    username: "",
+    fullname: "",
     email: "",
     password: "",
   });
@@ -15,8 +16,12 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/users/register", formData);
-      alert("Registration successful!");
+      const response = await axios.post("http://localhost:5000/api/auth/register", formData);
+      if(response.status === 201){
+ alert("Registration successful!");
+navigate('/login')
+      }
+     
     } catch (err) {
       console.error(err.response.data.error);
     }
@@ -37,10 +42,10 @@ const Register = () => {
             <input
               className="w-full p-2 border border-zinc-400 rounded-md"
               type="text"
-              placeholder="Username"
-              value={formData.username}
+              placeholder="Fullname"
+              value={formData.fullname}
               onChange={(e) =>
-                setFormData({ ...formData, username: e.target.value })
+                setFormData({ ...formData, fullname: e.target.value })
               }
             />
             <input
@@ -71,7 +76,8 @@ const Register = () => {
           <div className="mx-8 mt-2 text-blue-300 hover:text-blue-500 group">
             <Link to="/login">
               <p>
-                Already an account? <span className="group-hover:font-bold">Login</span>
+                Already an account?{" "}
+                <span className="group-hover:font-bold">Login</span>
               </p>
             </Link>
           </div>

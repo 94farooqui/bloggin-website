@@ -6,10 +6,10 @@ const User = require("../models/User.js");
 // Register a new user
 router.post("/register", async (req, res) => {
     console.log("Request for signup")
-  const { username, email, password, role } = req.body;
+  const { fullname, email, password, role } = req.body;
   try {
-    console.log(username, email, password, role)
-    const user = new User({ username, email, password, role });
+    console.log(fullname, email, password, role)
+    const user = new User({ fullname, email, password, role });
     await user.save();
     res.status(201).json({ msg: "User registered successfully" });
   } catch (error) {

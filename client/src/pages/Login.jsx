@@ -13,12 +13,15 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/users/login", {
+      const res = await axios.post("http://localhost:5000/api/auth/login", {
         email,
         password,
       });
-      login(res.data.token);
-      navigate("/");
+      if(res.data.token){
+        login(res.data.token);
+         navigate("/");
+      }
+           
     } catch (err) {
       console.error(err.response.data.error);
     }

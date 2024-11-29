@@ -6,32 +6,47 @@ import 'react-quill/dist/quill.snow.css';
 import katex from "katex";
 import "katex/dist/katex.min.css";
 import Editor from './Editor';
+import { createBlog } from '../services/blogs-api';
+
+const initalBlog = {
+  title: "",
+  content: "",
+  summary: "",
+  author: null,
+  createdAt: new Date().now,
+  tags: [],
+  likes: [],
+  comments: [],
+};
 
 const BlogEditor = () => {
+  const navigate = useNavigate()
+  const [blogData,setBlogData] = useState(initalBlog)
 
-    const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [tags, setTags] = useState('');
-  const { user } = useContext(AuthContext);
-  const [summary,setSummary] = useState()
-  const navigate = useNavigate();
-
+  const handleChange = (e) => {
+    setBlogData({...blogData, [e.target.name]:e.target.value})
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    // if (!token) {
-    //   alert('You need to be logged in to create a blog!');
-    //   navigate('/login');
-    //   return;
-    // }
+    if (!token) {
+      alert('You need to be logged in to create a blog!');
+      navigate('/login');
+      return;
+    }
 
     try {
       // 
-      console.log("Content", content);
-      alert('Blog created successfully!');
-      //navigate('/');
+      //console.log("Content", blogData);
+      const result = await createBlog(blogData)
+      if(result === true){
+        alert('Blog created successfully!');
+        navigate('/');
+      }
+ 
     } catch (err) {
       console.error(err.response?.data?.error || 'Something went wrong');
+      alert("Failed to create blog!");
     }
   };
 
@@ -56,30 +71,25 @@ const BlogEditor = () => {
           <input
             id="title"
             type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={blogData.title}
+            name="title"
+            onChange={(e) => handleChange(e)}
             required
             placeholder="Enter blog title"
             className="w-full text-xl p-2 border rounded-lg"
           />
         </div>
         {/* description_summary */}
-        <Editor content={content} setContent={setContent} />
-        {/* <textarea
-            id="content"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            required
-            placeholder="Write here"
-            className='w-full text-xl p-2 border rounded-lg resize-none' rows={6}
-          /> */}
+        <Editor blogData={blogData} setBlogData={setBlogData} />
         <div className="flex flex-col gap-1 mt-4">
           <label htmlFor="tags">Summary</label>
           <textarea
-          rows={2}
+            rows={2}
             id="summary"
-            value={summary}
-            onChange={(e) => setSummary(e.target.value)}
+            required
+            name="summary"
+            value={blogData.summary}
+            onChange={(e) => handleChange(e)}
             placeholder="short summary about the blog"
             className="w-full text-lg p-2 border rounded-lg resize-none"
           />
@@ -89,13 +99,15 @@ const BlogEditor = () => {
           <input
             id="tags"
             type="text"
-            value={tags}
-            onChange={(e) => setTags(e.target.value)}
+            name="tags"
+            required
+            value={blogData.tags}
+            onChange={(e) => handleChange(e)}
             placeholder="e.g., tech, programming, react"
             className="w-full text-lg p-2 border rounded-lg"
           />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+        <div dangerouslySetInnerHTML={{ __html: blogData.content }} />
       </form>
     </div>
   );
