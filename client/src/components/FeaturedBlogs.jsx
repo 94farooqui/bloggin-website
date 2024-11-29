@@ -14,11 +14,11 @@ const FeaturedBlogs = () => {
     const fetchBlogs = async () => {
       const result = await getFeaturedBlogs()
       if(result){
-        console.log(result)
+        //console.log(result)
         if (result?.message) {
           setMessage(result.message);
         } else {
-          console.log(result);
+          //console.log(result);
           setBlogs(result);
         }
       }

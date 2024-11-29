@@ -58,6 +58,42 @@ exports.getLatestBlogs = async (req, res) => {
   }
 };
 
+//get Blog details 
+exports.getBlogDetails = async (req,res) => {
+  const blogId = req.params.id
+  try{
+    const blog = await BlogPost.findById(blogId)
+
+    if (blog) {
+      return res.status(200).json(blog);
+    } else {
+      return res.status(204).json({ message: "No data found" });
+    }
+  }
+  catch(error){
+    console.log(error)
+    return res.status(500).json({ message: "Error in fetching data" });
+  }
+}
+
+//get Filtered Blogs
+;
+exports.getFilteredBlogs = async (req, res) => {
+  const keyword = req.params.keyword;
+  try {
+    const blogs = await BlogPost.find({ tags: { $in: [keyword] } });
+
+    if (blogs) {
+      return res.status(200).json(blogs);
+    } else {
+      return res.status(204).json({ message: "No data found" });
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: "Error in fetching data" });
+  }
+};
+
 // Create a new post
 exports.createPost = async (req, res) => {
   const { title, content, summary, tags } = req.body;

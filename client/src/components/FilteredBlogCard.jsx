@@ -1,10 +1,10 @@
-import React from 'react'
-import { MdDateRange } from 'react-icons/md';
+import React from "react";
+import { MdDateRange } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import { FaRegComments } from "react-icons/fa";
 import { FaRegCalendar } from "react-icons/fa";
 
-const LatestBlogCard = ({blog}) => {
+const FilteredBlogCard = ({ blog }) => {
   return (
     <div className="bg-white border-slate-200 border rounded-lg shadow-md flex overflow-hidden">
       <div className="flex flex-col gap-2 justify-between p-4 flex-1">
@@ -41,6 +41,6 @@ const LatestBlogCard = ({blog}) => {
       <div className="w-[35%] h-[150px] bg-gradient-to-r from-slate-700 to-slate-600"></div>
     </div>
   );
-}
+};
 
-export default LatestBlogCard
+export default FilteredBlogCard;

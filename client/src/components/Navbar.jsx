@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaRegEdit } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
+  const [searchWord,setSearchWord] = useState("")
+  const handleSearchSubmit = (e) => {
+    e.preventDefault()
+  }
   return (
     <div className="w-screen bg-white border-b drop-shadow sticky top-0 left-0 z-20">
       <div className="w-[1200px] mx-auto py-4 flex items-center justify-between">
@@ -15,10 +19,11 @@ const Navbar = () => {
             <span className="opacity-50">
               <FaSearch />
             </span>
-            <form>
+            <form onSubmit={handleSearchSubmit}>
               <input
                 placeholder="Search"
                 className="bg-transparent focus:outline-none"
+                onChange={(e)=>setSearchWord(e.target.value)}
               />
             </form>
           </li>

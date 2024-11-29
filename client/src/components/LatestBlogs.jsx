@@ -13,11 +13,11 @@ const LatestBlogs = () => {
         const fetchBlogs = async () => {
           const result = await getLatestBlogs();
           if (result) {
-            console.log(result);
+            //console.log(result);
             if (result?.message) {
               setMessage(result.message);
             } else {
-              console.log(result);
+              //console.log(result);
               setBlogs(result);
             }
           }
@@ -33,7 +33,8 @@ const LatestBlogs = () => {
           blogs.map((blog) => (
             <Link
               key={blog.title}
-              to={`${blog.title.replace(/\s+/g, "-").toLocaleLowerCase()}`}
+              to={`blogs/${blog.title.replace(/[\s:]+/g, "-").toLocaleLowerCase()}`}
+              state={{blogId: blog._id}}
             >
               <LatestBlogCard key={blog.title} blog={blog} />
             </Link>
