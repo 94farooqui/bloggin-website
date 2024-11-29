@@ -61,6 +61,21 @@ if(response){
       return response.data.message;
     } else if (response.status === 500) {
       return false;
-    } else return response.data.posts;
+    } else return response.data;
 }
+};
+
+export const getLatestBlogs = async () => {
+  console.log("Getting featured blogs");
+  const response = await axios.get(
+    "http://localhost:5000/api/blogs/posts/latest"
+  );
+  if (response) {
+    console.log(response);
+    if (response.status === 204) {
+      return response.data.message;
+    } else if (response.status === 500) {
+      return false;
+    } else return response.data;
+  }
 };

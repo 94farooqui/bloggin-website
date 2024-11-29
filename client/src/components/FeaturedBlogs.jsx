@@ -4,6 +4,7 @@ import FeaturedBlogCard from "./FeaturedBlogCard";
 import { Link } from 'react-router-dom';
 import { getFeaturedBlogs } from '../services/blogs-api';
 
+
 const FeaturedBlogs = () => {
   const [blogs,setBlogs] = useState(null)
   const [error,setError] = useState("")
@@ -39,14 +40,14 @@ const FeaturedBlogs = () => {
             </Link>
           ))
         ) : <p>No Blogs found</p>}
-        {SampleBlogs.map((blog) => (
+        {/* {SampleBlogs.map((blog) => (
           <Link
             key={blog.title}
             to={`${blog.title.replace(/\s+/g, "-").toLocaleLowerCase()}`}
           >
             <FeaturedBlogCard key={blog.title} blog={blog} />
           </Link>
-        ))}
+        ))} */}
       </div>
     </div>
   );

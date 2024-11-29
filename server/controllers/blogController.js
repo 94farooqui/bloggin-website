@@ -22,12 +22,36 @@ if (posts) {
 
 exports.getFeaturedPosts = async (req, res) => {
   try {
-    const posts = await BlogPost.find();
+    console.log("Request received")
+    const posts = await BlogPost.find({featured: true}).populate("author")
 
-    if (posts.data.length > 0) {
-      return res.status(200).json(posts);
-    } else {
-      return res.status(204).json({ message: "No data found" });
+   if(posts){
+    console.log(posts)
+     if (posts.length > 0) {
+       return res.status(200).json(posts);
+     } else {
+       return res.status(204).json({ message: "No data found" });
+     }
+   }
+  } catch (error) {
+    return res.status(500).json({ message: "Error in fetching data" });
+  }
+};
+
+
+
+exports.getLatestBlogs = async (req, res) => {
+  try {
+    console.log("Request received");
+    const posts = await BlogPost.find().sort({createdAt: -1}).limit(10).populate("author");
+
+    if (posts) {
+      console.log(posts);
+      if (posts.length > 0) {
+        return res.status(200).json(posts);
+      } else {
+        return res.status(204).json({ message: "No data found" });
+      }
     }
   } catch (error) {
     return res.status(500).json({ message: "Error in fetching data" });

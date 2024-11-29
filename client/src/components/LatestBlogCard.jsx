@@ -10,7 +10,9 @@ const LatestBlogCard = ({blog}) => {
       <div className="flex flex-col gap-2 justify-between p-4 flex-1">
         <div className="flex flex-col gap-2">
           <h2 className="font-bold">{blog.title}</h2>
-          <p className="text-sm text-slate-500">{blog.description_summary}</p>
+          <p className="text-sm text-slate-500 line-clamp-2">
+            {blog.summary || blog.description_summary}
+          </p>
         </div>
 
         <div className="w-full flex justify-between text-sm text-slate-400">
@@ -18,12 +20,16 @@ const LatestBlogCard = ({blog}) => {
             <span className="inline">
               <FaRegCalendar />
             </span>
-            <span>{blog.date}</span>
+            <span>
+              {blog.createdAt
+                ? new Date(blog.createdAt).toDateString()
+                : blog.date}
+            </span>
           </p>
           <div className="flex gap-4">
             <p className="flex gap-1 items-center">
               <FaRegHeart />
-              {blog.likes}
+              {blog.likes.length}
             </p>
             <p className="flex gap-1 items-center">
               <FaRegComments />
