@@ -5,6 +5,7 @@ import axios from "axios";
 import LoginIcon from "./../assets/login.svg";
 
 const Login = () => {
+  const [errorMessage,setErrorMessage] = useState()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useContext(AuthContext);
@@ -12,18 +13,27 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(email, password)
+    if(!email || !password){
+      setErrorMessage("Invalid Credentials")
+      return 
+    }
     try {
       const res = await axios.post("http://localhost:5000/api/auth/login", {
         email,
         password,
       });
+   
       if(res.data.token){
         login(res.data.token);
          navigate("/");
       }
            
     } catch (err) {
-      console.error(err.response.data.error);
+      if(err.status === 404 || err.status === 401 || err.status === 500){
+        setErrorMessage("User not found")
+      }
+      console.error("Error",err.status);
     }
   };
 
@@ -59,7 +69,9 @@ const Login = () => {
             >
               Login
             </button>
+            {errorMessage && <p className="text-red-500 font-semibold">{errorMessage}</p>}
           </form>
+          
           <div className="mx-8 mt-4 text-blue-300 hover:text-blue-500">
             <Link to="/register">
               <p>Don't have an account? Register</p>

@@ -33,7 +33,7 @@ const LatestBlogCard = ({blog}) => {
             </p>
             <p className="flex gap-1 items-center">
               <FaRegComments />
-              {blog.comments.length}
+              {blog.comments?.length}
             </p>
           </div>
         </div>

@@ -16,3 +16,20 @@ export const getUserProfile = async () => {
   // }
   else return response.data.posts;
 };
+
+export const getUserDetails = async () => {
+    const token = localStorage.getItem("token");
+
+  const response = await axios.get(`http://localhost:5000/api/user/${token}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  if (response.status === 204 || 500) {
+    return { message: response.data.message };
+  }
+  // else if(response.status === 500){
+  //   return false
+  // }
+  else return response.data.posts;
+}

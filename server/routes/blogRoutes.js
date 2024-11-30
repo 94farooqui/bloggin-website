@@ -10,6 +10,7 @@ const {
   getLatestBlogs,
   getBlogDetails,
   getFilteredBlogs,
+  addComment
 } = require("../controllers/blogController");
 const { setUser } = require("../middleware/auth");
 
@@ -22,5 +23,8 @@ router.post("/posts", setUser,createPost);
 router.put("/posts/:id", updatePost);
 router.delete("/posts/:id", deletePost);
 router.get("/search", searchPosts);
+
+//comment endpoints
+router.post("/posts/:blogId/comment", addComment);
 
 module.exports = router;

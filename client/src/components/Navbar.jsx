@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaRegEdit } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
@@ -6,12 +6,15 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
-  const {logout} = useContext(AuthContext)
+  const {logout,userDetails} = useContext(AuthContext)
   const [showAvatarOptions,setShowAvatarOptions] = useState(false)
   const [searchWord,setSearchWord] = useState("")
   const handleSearchSubmit = (e) => {
     e.preventDefault()
   }
+  useEffect(()=>{
+    //console.log(userDetails)
+  },[])
   return (
     <div className="w-screen bg-white border-b drop-shadow sticky top-0 left-0 z-20">
       <div className="w-[1200px] mx-auto py-4 flex items-center justify-between">

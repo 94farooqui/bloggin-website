@@ -105,3 +105,13 @@ export const fetchFilteredBlogs = async (keyword) => {
     } else return response.data;
   }
 };
+
+export const addComment = async (blogId, comment) => {
+  const response = await axios.post(
+    `http://localhost:5000/api/blogs/posts/${blogId}/comment`, comment
+  );
+  if(response.status == 200){
+    console.log(response)
+    return response.data
+  }
+}
