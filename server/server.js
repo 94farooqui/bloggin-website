@@ -8,6 +8,8 @@ const cors = require("cors");
 //import from project
 const blogRoutes = require("./routes/blogRoutes");
 const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
+
 
 
 require("dotenv").config();
@@ -34,6 +36,7 @@ mongoose.connect(mongoURI, {
 app.get("/", (req, res) => res.send("API is running..."));
 app.use("/api/blogs", blogRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/user", userRoutes)
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 

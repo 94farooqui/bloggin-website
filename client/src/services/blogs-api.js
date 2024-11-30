@@ -53,7 +53,7 @@ export const getAllBlogs = async () => {
 }
 
 export const getFeaturedBlogs = async () => {
-  console.log("Getting featured blogs")
+  //console.log("Getting featured blogs")
   const response = await axios.get("http://localhost:5000/api/blogs/posts/featured");
 if(response){
   //console.log(response)
@@ -83,7 +83,7 @@ export const getLatestBlogs = async () => {
 export const fetchBlogDetails = async (blogId) => {
   const response = await axios.get(`http://localhost:5000/api/blogs/posts/${blogId}`)
   if(response){
-    console.log(response)
+    //console.log(response)
        if (response.status === 204) {
          return response.data.message;
        } else if (response.status === 500) {
@@ -97,7 +97,7 @@ export const fetchFilteredBlogs = async (keyword) => {
     `http://localhost:5000/api/blogs/posts/filter/${keyword}`
   );
   if (response) {
-    console.log(response);
+    //console.log(response);
     if (response.status === 204) {
       return response.data.message;
     } else if (response.status === 500) {

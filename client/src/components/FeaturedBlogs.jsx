@@ -33,9 +33,12 @@ const FeaturedBlogs = () => {
         {blogs ?  (
           blogs.map((blog) => (
             <Link
-              key={blog.title}
-              to={`${blog.title.replace(/\s+/g, "-").toLocaleLowerCase()}`}
-            >
+            key={blog.title}
+            to={`/blogs/${blog.title
+              .replace(/[\s:]+/g, "-")
+              .toLocaleLowerCase()}`}
+            state={{ blogId: blog._id }}
+          >
               <FeaturedBlogCard key={blog.title} blog={blog} />
             </Link>
           ))

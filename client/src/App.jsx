@@ -9,6 +9,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import RootLayout from './components/RootLayout';
 import About from './pages/About';
 import FilteredBlogs from './pages/FilteredBlogs';
+import Profile from './pages/Profile';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route element={<RootLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/blogs/:id" element={<BlogDetails />} />
           <Route path="/blogs/tags/:filter" element={<FilteredBlogs />} />
 

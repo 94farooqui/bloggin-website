@@ -6,6 +6,13 @@ const bcrypt = require("bcrypt")
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   role: { type: String, enum: ["user", "admin"], default: "user" },
+  profilePicture: { type: String }, // URL for the user's profile picture
+  bio: { type: String }, // Short bio about the user
+  socialLinks: {
+    twitter: { type: String },
+    linkedin: { type: String },
+  }, // Optional social media links
+  blogs: [{ type: mongoose.Schema.ObjectId, ref : "BlogPost"}],
   createdAt: { type: Date, default: Date.now }
 });
 

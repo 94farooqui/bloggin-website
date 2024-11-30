@@ -32,10 +32,12 @@ const LatestBlogs = () => {
         {blogs ? (
           blogs.map((blog) => (
             <Link
-              key={blog.title}
-              to={`blogs/${blog.title.replace(/[\s:]+/g, "-").toLocaleLowerCase()}`}
-              state={{blogId: blog._id}}
-            >
+            key={blog.title}
+            to={`/blogs/${blog.title
+              .replace(/[\s:]+/g, "-")
+              .toLocaleLowerCase()}`}
+            state={{ blogId: blog._id }}
+          >
               <LatestBlogCard key={blog.title} blog={blog} />
             </Link>
           ))

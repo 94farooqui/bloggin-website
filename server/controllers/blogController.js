@@ -1,4 +1,5 @@
 const BlogPost = require("../models/BlogPost");
+const User = require("../models/User");
 
 // Get all posts
 exports.getPosts = async (req, res) => {
@@ -22,11 +23,11 @@ if (posts) {
 
 exports.getFeaturedPosts = async (req, res) => {
   try {
-    console.log("Request received")
+    //console.log("Request received")
     const posts = await BlogPost.find({featured: true}).populate("author")
 
    if(posts){
-    console.log(posts)
+    //console.log(posts)
      if (posts.length > 0) {
        return res.status(200).json(posts);
      } else {
@@ -42,11 +43,11 @@ exports.getFeaturedPosts = async (req, res) => {
 
 exports.getLatestBlogs = async (req, res) => {
   try {
-    console.log("Request received");
+    //console.log("Request received");
     const posts = await BlogPost.find().sort({createdAt: -1}).limit(10).populate("author");
 
     if (posts) {
-      console.log(posts);
+      //console.log(posts);
       if (posts.length > 0) {
         return res.status(200).json(posts);
       } else {
@@ -62,7 +63,7 @@ exports.getLatestBlogs = async (req, res) => {
 exports.getBlogDetails = async (req,res) => {
   const blogId = req.params.id
   try{
-    const blog = await BlogPost.findById(blogId)
+    const blog = await BlogPost.findById(blogId).populate("author")
 
     if (blog) {
       return res.status(200).json(blog);
@@ -71,7 +72,7 @@ exports.getBlogDetails = async (req,res) => {
     }
   }
   catch(error){
-    console.log(error)
+    //console.log(error)
     return res.status(500).json({ message: "Error in fetching data" });
   }
 }
@@ -89,7 +90,7 @@ exports.getFilteredBlogs = async (req, res) => {
       return res.status(204).json({ message: "No data found" });
     }
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     return res.status(500).json({ message: "Error in fetching data" });
   }
 };
@@ -105,10 +106,25 @@ exports.createPost = async (req, res) => {
     author: req.user.id,
 
   };
+try{
   const newBlog = new BlogPost(newBlogData);
-  console.log("New Blog",newBlog);
-  await newBlog.save();
-  res.status(201).json(newBlog);
+  //console.log("New Blog",newBlog);
+  const blogAdded = await newBlog.save();
+  if(blogAdded){
+    const user = await User.findById(req.user.id)
+    if(user){
+      user.blogs.push(blogAdded._id)
+      await user.save()
+      res.status(201).json(newBlog);
+    }
+    else return res.status(401).json()
+    
+  }
+  return res.status(400).json({message: "Bad request"});
+}
+catch(error){
+  return res.status(500).json({message: "something went wrong"});
+}
 };
 
 // Update a post

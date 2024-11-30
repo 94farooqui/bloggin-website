@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaRegEdit } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
+import { FaRegUserCircle } from "react-icons/fa";
+import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
+  const {logout} = useContext(AuthContext)
+  const [showAvatarOptions,setShowAvatarOptions] = useState(false)
   const [searchWord,setSearchWord] = useState("")
   const handleSearchSubmit = (e) => {
     e.preventDefault()
@@ -28,13 +32,13 @@ const Navbar = () => {
             </form>
           </li>
           <Link to="/">
-            <li className="hover:bg-slate-100 rounded-md p-2 ">Home</li>
+            <li className="hover:bg-slate-200 rounded-md p-2 font-semibold ">Home</li>
           </Link>
           <Link to="/about">
-            <li className=" hover:bg-slate-100 rounded-md p-2">About</li>
+            <li className=" hover:bg-slate-200 rounded-md p-2 font-semibold">About</li>
           </Link>
           <Link to="/categories">
-            <li className="hover:bg-slate-100 rounded-md p-2 ">Categories</li>
+            <li className="hover:bg-slate-200 rounded-md p-2 font-semibold ">Categories</li>
           </Link>
           <Link to="/create">
             <li className="border border-slate-300 bg-transparent  py-2 px-4 rounded-md hover:bg-slate-200 flex items-center gap-2 font-semibold">
@@ -42,6 +46,12 @@ const Navbar = () => {
               Write
             </li>
           </Link>
+          <div className="relative group">
+            <li className="text-2xl  hover:bg-slate-200 rounded-full p-2 cursor-pointer" onMouseEnter={()=>setShowAvatarOptions(true)} onMouseLeave={()=>setShowAvatarOptions(false)}>
+              <FaRegUserCircle className="opacity-70"/>
+              {showAvatarOptions && <div className="absolute top-10 bg-white border border-gray-200 shadow-lg rounded-lg overflow-hidden flex flex-col text-sm font-semibold opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-transform duration-300 ease-in-out delay-100"><Link to='/profile'><p className="px-8 py-2 border-b hover:bg-slate-200">Profile</p></Link><button onClick={()=>logout()} className="px-8 py-2 border-b hover:bg-slate-200">Logout</button></div>}
+            </li>
+            </div>
         </ul>
       </div>
     </div>
