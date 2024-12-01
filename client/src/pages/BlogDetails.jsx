@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { addComment, fetchBlogDetails } from "../services/blogs-api";
+import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
+import { FaRegComments } from "react-icons/fa";
 import { FaComments } from "react-icons/fa";
 import { FaCalendar } from "react-icons/fa";
 import { FaBookOpen } from "react-icons/fa";
@@ -9,6 +11,11 @@ import CommentForm from "../components/CommentForm";
 import { AuthContext } from "../context/AuthContext";
 import { FaCaretDown } from "react-icons/fa";
 import Comment from "../components/Comment";
+
+import { FaRegBookmark } from "react-icons/fa";
+import { FaBookmark } from "react-icons/fa";
+import { FaRegShareSquare } from "react-icons/fa";
+import { FaShareSquare } from "react-icons/fa";
 
 const BlogDetails = () => {
   const [showComments, setShowComments] = useState(false);
@@ -24,7 +31,7 @@ const BlogDetails = () => {
       //console.log(userDetails);
       const data = await fetchBlogDetails(blogId);
       if (data) {
-        //console.log(data);
+        console.log(data);
         setBlog(data);
         setLoading(false);
       }
@@ -52,29 +59,68 @@ const BlogDetails = () => {
       <div className="w-[1200px]  py-4 mx-auto">
         <div className="bg-white w-full flex flex-col gap-8 py-12 px-12 rounded-lg drop-shadow">
           <h2 className="text-3xl font-bold text-zinc-600">{blog.title}</h2>
-          <div className="flex justify-start gap-8 w-full text-sm text-slate-500 ">
-            <p className="flex items-center gap-2">
-              <FaHeart /> {blog.likes.length}
-            </p>
-            <p className="flex items-center gap-2">
-              <FaComments /> {blog.comments?.length}
-            </p>
-            <p className="flex items-center gap-2">
-              <FaCalendar />
-              {blog.createdAt
-                ? new Date(blog.createdAt).toDateString()
-                : blog.date}
-            </p>
-            <p className="flex items-center gap-2">
-              <FaBookOpen /> By {blog.author.fullname || blog.author}
-            </p>
+          <p className="text-sm text-zinc-500">{blog.summary}</p>
+          <div className="flex flex-col gap-4">
+            <div className="flex gap-4 items-center">
+              <div className="w-8 h-8 rounded-full bg-zinc-400"></div>
+              <div className="flex flex-col text-sm text-zinc-500">
+                <p className="flex items-center gap-2">
+                  <FaCalendar />
+                  {blog.createdAt
+                    ? new Date(blog.createdAt).toDateString()
+                    : blog.date}
+                </p>
+                <p className="flex items-center gap-2">
+                  <FaBookOpen /> By{" "}
+                  <span className="font-semibold">
+                    {blog.author.fullname || blog.author}
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div className="flex justify-between w-full  text-zinc-500 border-y py-4 ">
+              <div className="flex items-center gap-8 ">
+              <p className="flex items-center gap-2">
+                {user ? (
+                  blog.likes.includes(user.id) ? (
+                    <FaHeart />
+                  ) : (
+                    <FaRegHeart />
+                  )
+                ) : (
+                  <FaRegHeart />
+                )}{" "}
+                {blog.likes.length}
+              </p>
+              <p className="flex items-center gap-2">
+                {user ? (
+                  blog.comments.some(
+                    (comment) => comment.user._id == user.id
+                  ) ? (
+                    <FaComments />
+                  ) : (
+                    <FaRegComments />
+                  )
+                ) : (
+                  <FaRegComments />
+                )}{" "}
+                {blog.comments?.length}
+              </p>
+              </div>
+              <div className="flex items-center gap-8">
+              <FaRegBookmark/>
+              <FaRegShareSquare/>
+              </div>
+              
+            </div>
           </div>
+
           <div
             dangerouslySetInnerHTML={{ __html: blog.content }} // Render rich text content
-            className=" w-full "
+            className=" w-full text-zinc-700 "
           />
           <div className="mt-8 flex items-center gap-8">
-            <p>Tags:</p>
+            <p className="bg-zinc-200 rounded-md px-4 py-1">Tags:</p>
             <div className="flex gap-4 items-center">
               {blog.tags.map((tag) => (
                 <Link to={`/blogs/tags/${tag.replace("/s", "-")}`} key={tag}>
@@ -93,7 +139,7 @@ const BlogDetails = () => {
               <h2 className="text-xl font-semibold text-zinc-800">Comments</h2>
               <button
                 onClick={() => setShowComments(!showComments)}
-                className={`w-6 h-6 bg-slate-600 rounded-full flex items-center justify-center text-slate-100 ${
+                className={`w-6 h-6 bg-zinc-600 rounded-full flex items-center justify-center text-zinc-100 ${
                   showComments ? "rotate-180" : "rotate-0"
                 } transition-transform ease-in-out duration-200`}
               >
@@ -102,11 +148,13 @@ const BlogDetails = () => {
             </div>
             {showComments && (
               <div className="flex flex-col gap-4">
-                <CommentForm
-                  handleCommentSubmit={handleCommentSubmit}
-                  newComment={newComment}
-                  setNewComment={setNewComment}
-                />
+                {user?.id && (
+                  <CommentForm
+                    handleCommentSubmit={handleCommentSubmit}
+                    newComment={newComment}
+                    setNewComment={setNewComment}
+                  />
+                )}
                 {blog.comments?.map((comment) => (
                   <Comment key={comment._id} comment={comment} />
                 ))}

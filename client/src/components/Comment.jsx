@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Comment = ({comment}) => {
-    console.log(comment)
+    //console.log(comment)
   return (
     <div className='border-b py-4'>
         <div className='flex items-center gap-4'>

@@ -17,7 +17,7 @@ const LatestBlogs = () => {
             if (result?.message) {
               setMessage(result.message);
             } else {
-              console.log(result);
+              //console.log(result);
               setBlogs(result);
             }
           }

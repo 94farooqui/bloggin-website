@@ -13,7 +13,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password)
+    //console.log(email, password)
     if(!email || !password){
       setErrorMessage("Invalid Credentials")
       return 
