@@ -8,16 +8,23 @@ export const getUserProfile = async () => {
       Authorization: `Bearer ${token}`,
     },
   });
-  if (response.status === 401) {
-    localStorage.removeItem("token")
+  if(response.status == 200){
+    console.log(response.data)
+    return response.data
   }
-  if (response.status === 204 || 500) {
-    return { message: response.data.message };
+  else {
+if (response.status === 401) {
+  localStorage.removeItem("token");
+}
+if (response.status === 204 || response.status === 500) {
+  console.log(response.data);
+  return { message: response.data.message };
+}
   }
   // else if(response.status === 500){
   //   return false
   // }
-  else return response.data.posts;
+ 
 };
 
 export const getUserDetails = async () => {
@@ -48,3 +55,7 @@ export const getUserDetails = async () => {
       }
   }
 };
+
+export const getUserBlogs = async () => {
+  const token = localStorage.getItem("token");
+}

@@ -119,9 +119,9 @@ const BlogDetails = () => {
             dangerouslySetInnerHTML={{ __html: blog.content }} // Render rich text content
             className=" w-full text-zinc-700 "
           />
-          <div className="mt-8 flex items-center gap-8">
+          <div className="mt-8 flex items-start gap-8">
             <p className="bg-zinc-200 rounded-md px-4 py-1">Tags:</p>
-            <div className="flex gap-4 items-center">
+            <div className="flex gap-4 items-center flex-wrap">
               {blog.tags.map((tag) => (
                 <Link to={`/blogs/tags/${tag.replace("/s", "-")}`} key={tag}>
                   <p className="text-sm text-zinc-500 bg-zinc-100 py-1 px-2 hover:bg-zinc-200 hover:text-zinc-600 rounded-md">
