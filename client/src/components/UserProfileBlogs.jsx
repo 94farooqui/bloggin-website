@@ -1,11 +1,12 @@
 import React from 'react'
 import UserProfileBlogCard from './UserProfileBlogCard';
+import { Link } from 'react-router-dom';
 
 const UserProfileBlogs = ({blogs}) => {
   return (
     <div>
       {blogs.map((blog) => (
-        <UserProfileBlogCard blog={blog} />
+        <Link to={blog._id}><UserProfileBlogCard blog={blog} /></Link>
       ))}
     </div>
   );

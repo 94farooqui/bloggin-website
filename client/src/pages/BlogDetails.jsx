@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { addComment, fetchBlogDetails } from "../services/blogs-api";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
@@ -16,14 +16,16 @@ import { FaRegBookmark } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
 import { FaRegShareSquare } from "react-icons/fa";
 import { FaShareSquare } from "react-icons/fa";
+import { FaRegEdit } from "react-icons/fa";
 
 const BlogDetails = () => {
+  const params = useParams()
   const [showComments, setShowComments] = useState(false);
   const [newComment, setNewComment] = useState("");
   const { user } = useContext(AuthContext);
   const location = useLocation();
   const [loading, setLoading] = useState(true);
-  const blogId = location.state?.blogId;
+  const blogId = location.state?.blogId || params.blogId;
   const [blog, setBlog] = useState();
 
   useEffect(() => {
@@ -57,7 +59,8 @@ const BlogDetails = () => {
   if (blog) {
     return (
       <div className="w-[1200px]  py-4 mx-auto">
-        <div className="bg-white w-full flex flex-col gap-8 py-12 px-12 rounded-lg drop-shadow">
+        <div className="relative bg-white w-full flex flex-col gap-8 py-12 px-12 rounded-lg drop-shadow">
+          {params.blogId && <Link to='edit' className="absolute top-2 right-2 flex items-center gap-2 bg-slate-200 text-slate-400 hover:bg-slate-600 hover:text-slate-100 px-2 py-1 rounded-md text-sm">Edit <FaRegEdit /></Link>}
           <h2 className="text-3xl font-bold text-zinc-600">{blog.title}</h2>
           <p className="text-sm text-zinc-500">{blog.summary}</p>
           <div className="flex flex-col gap-4">

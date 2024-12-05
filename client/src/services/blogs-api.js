@@ -41,6 +41,20 @@ export const createBlog = async (blogData) => {
     }
 }
 
+export const updateBlog = async (blog) => {
+  try{
+    const response = await axios.put(`http://localhost:5000/api/blogs/posts/${blog._id}`)
+    if(response.status == 200){
+      return true
+    }
+    else return false
+  }
+  catch(error){
+    console.log(error)
+    return false
+  }
+}
+
 export const getAllBlogs = async () => {
   const response = await axios.get("http://localhost:5000/api/blogs/posts");
   if(response.status === 204 || 500){

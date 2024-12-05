@@ -10,6 +10,7 @@ import RootLayout from './components/RootLayout';
 import About from './pages/About';
 import FilteredBlogs from './pages/FilteredBlogs';
 import Profile from './pages/Profile';
+import EditBlog from './pages/EditBlog';
 
 const App = () => {
   return (
@@ -19,7 +20,10 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/:blogId" element={<BlogDetails />} />
+          <Route path="/profile/:blogId/edit" element={<EditBlog />} />
           <Route path="/blogs/:id" element={<BlogDetails />} />
+         
           <Route path="/blogs/tags/:filter" element={<FilteredBlogs />} />
 
           <Route
