@@ -6,7 +6,7 @@ import 'react-quill/dist/quill.snow.css';
 import katex from "katex";
 import "katex/dist/katex.min.css";
 import Editor from './Editor';
-import { createBlog, fetchBlogDetails } from '../services/blogs-api';
+import { fetchBlogDetails, updateBlog } from '../services/blogs-api';
 
 const BlogUpdate = ({blogId}) => {
   const navigate = useNavigate()
@@ -42,7 +42,7 @@ const BlogUpdate = ({blogId}) => {
       //console.log("Content", blogData);
       const result = await updateBlog(blogData)
       if(result === true){
-        alert('Blog created successfully!');
+        alert('Blog updated successfully!');
         navigate('/');
       }
  

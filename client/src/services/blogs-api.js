@@ -43,8 +43,9 @@ export const createBlog = async (blogData) => {
 
 export const updateBlog = async (blog) => {
   try{
-    const response = await axios.put(`http://localhost:5000/api/blogs/posts/${blog._id}`)
-    if(response.status == 200){
+    console.log("Sending updated blog", blog)
+    const response = await axios.put(`http://localhost:5000/api/blogs/posts/${blog._id}`,blog)
+    if(response.status == 201){
       return true
     }
     else return false

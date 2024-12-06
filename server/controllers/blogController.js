@@ -125,12 +125,13 @@ exports.createPost = async (req, res) => {
 
 // Update a post
 exports.updatePost = async (req, res) => {
+  console.log(req.body)
   const updatedPost = await BlogPost.findByIdAndUpdate(
     req.params.id,
     req.body,
     { new: true }
   );
-  res.json(updatedPost);
+   res.status(201).json(updatedPost);
 };
 
 // Delete a post
