@@ -130,3 +130,14 @@ export const addComment = async (blogId, comment) => {
     return response.data
   }
 }
+
+export const deleteBlog = async (blogId) => {
+  const response = await axios.delete(
+    `http://localhost:5000/api/blogs/posts/${blogId}`
+  );
+
+  if(response.status == 204){
+    return true
+  }
+  else return false
+}

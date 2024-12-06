@@ -43,7 +43,7 @@ const BlogUpdate = ({blogId}) => {
       const result = await updateBlog(blogData)
       if(result === true){
         alert('Blog updated successfully!');
-        navigate('/');
+        navigate('/profile');
       }
  
     } catch (err) {
